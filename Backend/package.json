@@ -4,10 +4,11 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "compile":"sass SASS/mains.scss assets/style.css --watch",
     "start": "node server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Philemon BINENGA",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
