@@ -125,6 +125,51 @@ li:hover {
 	text-align: center;
 	margin-bottom: 1em;
 }
+/* FILTRES */
+
+.filters-container {
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	margin: 50px;
+}
+
+.filters-container button {
+	border: 1px solid #1D6154;
+	background-color: #FFFFFF;
+	font-family: 'Syne';
+	color: #1D6154; 
+	font-weight: 700;
+	font-size: 16px;
+	border-radius: 60px;
+	padding: 10px;
+}
+
+.filters-container button:hover {
+	background-color: #1D6154;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+
+.filters-container button:focus {
+	background-color: #1D6154;
+	color: #FFFFFF;
+	cursor: pointer;
+
+}
+form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+form<h2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+}
 .gallery {
 	width: 100%;
 	display: grid;

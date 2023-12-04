@@ -1,6 +1,7 @@
 const gallery = document.querySelector(".gallery");
-const filters = document.querySelector(".filters");
 
+let works = [];
+let categories = [];
 
 // Récupération de l'API //
 const fetchWorks = () => {
@@ -16,11 +17,7 @@ const fetchWorks = () => {
   };
   fetchWorks();
 
-  async function fetchCategories() {
-    const response = await fetch('http://localhost:5678/api/categories');
-    return await response.json();
-}
-fetchCategories();
+
 
   // Apparition des travaux sur le DOM // 
 
@@ -37,33 +34,35 @@ fetchCategories();
 
 // Création des boutons par catégorie //
 
-function createAllButtons() {
-    fetchCategories().then((data) => {
-        console.log(data);
-        data.forEach((category) => {
-            createAllButtons(category);
-        });
-    });
+async function fetchCategories() {
+  const response = await fetch('http://localhost:5678/api/categories');
+  return await response.json();
 }
+fetchCategories();
 
-const filterButton = document.createElement('button');
-categories.forEach(category => {
+// Filtres //
 
-    //Création de bouttons pour chaques catégories
-    const filterButton = document.createElement('button');
+document.getElementById('filterst').addEventListener('click', () => {
+  createGallery(works);
+});
 
-    //Ajout du texte sur les boutons en fonction du nom de la catégorie
-    filterButton.textContent = category.name;
+document.getElementById('filterso').addEventListener('click', () => {
+  const objets = works.filter((event) => {
+    return event.category.id == 1;
+  });
+  createGallery(objets);
+});
 
-    //Ajout d'un ID sur chaque bouttons en fonction des catégories
-    filterButton.id = category.id;
+document.getElementById('filtersa').addEventListener('click', () => {
+  const appartements = works.filter((event) => {
+    return event.category.id == 2;
+  });
+  createGallery(appartements);
+});
 
-    // "filterButton" enfant lié à son parent "filtersElement"
-    filtersElement.appendChild(filterButton);
-
-    //Ajout évenement au clic du boutton affichant des éléments en fonction de la catégorie sélectionnée.
-    filterButton.addEventListener('click', (event) => {
-        const filteredWorks = event.target.id === 'all' ? works : works.filter(work => work.categoryId == event.target.id);
-        displayWorks(filteredWorks);
-    });
+document.getElementById('filtersh').addEventListener('click', () => {
+  const hotels = works.filter((event) => {
+    return event.category.id == 3;
+  });
+  createGallery(hotels);
 });
