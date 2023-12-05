@@ -164,7 +164,7 @@ form {
 	align-items: center;
 }
 
-form<h2 {
+form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

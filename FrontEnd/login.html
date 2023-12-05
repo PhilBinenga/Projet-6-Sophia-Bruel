@@ -6,7 +6,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Work+Sans&display=swap" rel="stylesheet">
     <title>Sophia Bluel - Architecte d'intérieur</title>
-    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/login.css">
+    <script src="./JS/login.js" defer></script>
 </head>
 <body>
     <header>
@@ -21,20 +22,31 @@
         </nav>
     </header>
 <main>
-<section id="form">
+<div class="login-space">
     <h2>Log In</h2>
-    <form id="userLogin" action="#" method="post">
+
+    <form action="" class="input-position">
         <label for="email">E-mail</label>
-        <input id="email" type="email" name="email">
+        <input type="email">
+
         <label for="password">Mot de passe</label>
-        <input id="password" type="password" name="password">
-        <button type="submit"> Se connecter</button>
-        <p class="mdp-forget">Mot de passe oublié</p>
+        <input type="password">
     </form>
-</section>
 
+    <p class="error-message">Identifiant ou mot de passe erroné</p>
+
+    <button class="loginBtn">Se connecter</button>
+
+    <a href="">Mot de passe oublié</a>
+</div>
 </main>
-
-    
+<footer>
+	<nav>
+		<ul>
+			<li>Mentions Légales</li>
+		</ul>
+	</nav>
+</footer>
 </body>
+
 </html>

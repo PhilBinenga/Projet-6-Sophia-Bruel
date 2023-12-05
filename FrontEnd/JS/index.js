@@ -40,7 +40,7 @@ async function fetchCategories() {
 }
 fetchCategories();
 
-// Filtres //
+//  Filtres //
 
 document.getElementById('filterst').addEventListener('click', () => {
   createGallery(works);
@@ -66,3 +66,5 @@ document.getElementById('filtersh').addEventListener('click', () => {
   });
   createGallery(hotels);
 });
+
+// L
