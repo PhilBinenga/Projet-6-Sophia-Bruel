@@ -1,48 +1,24 @@
-// Récupération des balises dans le DOM
+const inputs = document.querySelectorAll("input");
+const errorMessage = document.querySelector(".error-message");
+const loginBtn = document.querySelector(".login-btn");
+ const form = document.querySelector("input-position")
 
-const emailInput = document.querySelector("email");
-const passwordInput = document.querySelector("password");
-const form = document.querySelector("input-position");
-const error = document.querySelector("error-message");
 
-// 
+loginBtn.addEventListener("submit", async (e) => {
+    const email = document.querySelector("email").value;
+    const password = document.querySelector("password").value;
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
+    e.preventDefault();
 
-    const stockEmailInput = emailInput.value;
-    const stockPasswordInput = passwordInput.value;
+    const response = await fetch("http://localhost:5678/api/users/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    // Ajoute les informations d'identification dans le corps de la requête
+    body: JSON.stringify({ email, password }),
+  });
+  if (response.ok) {
+    const data = await response.json();
+    sessionStorage.setItem("accessToken", data.token);
+    window.location.href = "./index.html"
+  }
 })
-const fetchUsers () => {
-    fetch("http://localhost:5678/api/users/login", {
-        method: "POST",
-        body: JSON.stringify({
-          email: stockEmailInput,
-          password: stockPasswordInput,
-        }),
-        headers: {
-          "Content-type": "application/json",
-        },
-      })
-        .then((response) => {
-          if (response.status === 200) {
-            return response.json();
-          } else if (response.status === 404) {
-            errorDisplay.innerHTML = "Nous n'avons pas trouvé votre adresse mail";
-            form.reset();
-          } else {
-            errorDisplay.innerHTML = "Erreur dans l'identifiant ou le mot de passe";
-            form.reset();
-          }
-        })
-        .then((data) => {
-          if (data.token) {
-            // Je sauvegarde le token dans le local storage
-            sessionStorage.setItem("token", data.token);
-            // Je renvoie sur la page d'accueille
-            window.location.href = "./index.html";
-          }
-          // Je vide le formulaire
-          form.reset();
-        });
-    });
