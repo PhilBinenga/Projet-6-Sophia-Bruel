@@ -1,14 +1,14 @@
 const inputs = document.querySelectorAll("input");
 const errorMessage = document.querySelector(".error-message");
-const loginBtn = document.querySelector(".login-btn");
- const form = document.querySelector("input-position")
-
+const loginBtn = document.querySelector(".input-position");
+ const form = document.querySelector("input-position");
+;
 
 loginBtn.addEventListener("submit", async (e) => {
-    const email = document.querySelector("email").value;
-    const password = document.querySelector("password").value;
-
     e.preventDefault();
+
+    const email = e.target.email.value
+    const password = e.target.password.value
 
     const response = await fetch("http://localhost:5678/api/users/login", {
     method: "POST",

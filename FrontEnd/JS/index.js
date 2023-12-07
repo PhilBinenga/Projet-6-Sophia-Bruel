@@ -34,37 +34,35 @@ const fetchWorks = () => {
 
 // Création des boutons par catégorie //
 
-async function fetchCategories() {
-  const response = await fetch('http://localhost:5678/api/categories');
-  return await response.json();
-}
-fetchCategories();
+const fetchCategories = () => {
+  fetch('http://localhost:5678/api/categories')
+  .then((response) => response.json())
+  .then((data) => {
+    data.forEach(category => {
+      const btn = document.createElement('button')
+      btn.innerHTML = category.name 
 
-//  Filtres //
+      btn.addEventListener('click', () => {
+        const workToDisplay = works.filter((work) => {
+          return work.category.id == category.id;
+        });
+        createGallery(workToDisplay);
+      })
+      document.querySelector('.filters-container').appendChild(btn)
+    });
+  })
+  .catch((error) => {
+    console.log(error);
+  });
+};
+
+fetchCategories()
+
+function createFilters() {
+  console.log()
+}
+
 
 document.getElementById('filterst').addEventListener('click', () => {
   createGallery(works);
 });
-
-document.getElementById('filterso').addEventListener('click', () => {
-  const objets = works.filter((event) => {
-    return event.category.id == 1;
-  });
-  createGallery(objets);
-});
-
-document.getElementById('filtersa').addEventListener('click', () => {
-  const appartements = works.filter((event) => {
-    return event.category.id == 2;
-  });
-  createGallery(appartements);
-});
-
-document.getElementById('filtersh').addEventListener('click', () => {
-  const hotels = works.filter((event) => {
-    return event.category.id == 3;
-  });
-  createGallery(hotels);
-});
-
-// L
