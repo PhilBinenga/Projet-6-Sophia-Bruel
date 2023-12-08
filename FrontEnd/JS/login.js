@@ -20,5 +20,10 @@ loginBtn.addEventListener("submit", async (e) => {
     const data = await response.json();
     sessionStorage.setItem("accessToken", data.token);
     window.location.href = "./index.html"
-  }
-})
+  } else {
+    errorMessage.style.visibility = "visible";
+}
+});
+
+// MODAL //
+

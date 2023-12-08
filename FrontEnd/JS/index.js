@@ -32,7 +32,7 @@ const fetchWorks = () => {
     gallery.innerHTML = galleries;
   }
 
-// Création des boutons par catégorie //
+// Création des boutons filtres par catégorie //
 
 const fetchCategories = () => {
   fetch('http://localhost:5678/api/categories')
@@ -40,7 +40,7 @@ const fetchCategories = () => {
   .then((data) => {
     data.forEach(category => {
       const btn = document.createElement('button')
-      btn.innerHTML = category.name 
+      btn.innerHTML = category.name
 
       btn.addEventListener('click', () => {
         const workToDisplay = works.filter((work) => {
@@ -62,7 +62,7 @@ function createFilters() {
   console.log()
 }
 
-
 document.getElementById('filterst').addEventListener('click', () => {
   createGallery(works);
 });
+
