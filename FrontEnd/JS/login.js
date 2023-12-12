@@ -25,5 +25,4 @@ loginBtn.addEventListener("submit", async (e) => {
 }
 });
 
-// MODAL //
 

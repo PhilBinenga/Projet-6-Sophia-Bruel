@@ -157,6 +157,33 @@ li:hover {
 	cursor: pointer;
 
 }
+
+/* BAR EDITION */
+.edition{
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+	background-color: black;
+	color: white;
+	width: 100%;
+	gap: 10px;
+}
+
+.btnEdition {
+	border-radius: 20px;
+    padding: 8px;
+    font-weight: bold;
+	cursor: pointer;
+}
+
+.inactive{
+	display: none;
+}
+
 form {
 	display: flex;
 	flex-direction: column;
