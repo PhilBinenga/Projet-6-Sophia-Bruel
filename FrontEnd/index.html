@@ -19,7 +19,6 @@
 	<div class="edition inactive">
 	<i class="fa-regular fa-pen-to-square"></i>
 	<p>Mode édition</p>
-	<button id="btnEdition">publier les changements</button>
 </div>
 
 	<h1>Sophie Bluel <span>Architecte d'intérieur</span></h1>
@@ -38,16 +37,59 @@
 
 
 	<dialog id="modal">
-		<i class="fa-solid fa-xmark close_modal_icon"></i>
-		<div class="modal-content">
-			<h3>Galerie photo</h3>
-			<div class="modal-img">
+		<form action="#" method="dialog" id="modal-content">
+			<div class="modalNav">
+				<button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
 			</div>
-			<span class="modal-line"></span>
-			<button class="modal-add-btn">Ajouter une photo</button>
-			<p class="modal-delete-gallery">Supprimer la galerie</p>
-		</div>
+			<h3>Galerie photo</h3>
+			<div id="modalGallery">
+
+			</div>
+			<div class="modalBtn">
+				<input type="submit" id="addPicsBtn" value="Ajouter une photo">
+				<button id="deletePics">Supprimer la galerie</button>
+			</div>
+		</form>
 	</dialog>
+
+	<dialog id="addPictures">
+		<form id="modalAddPics">
+			<div class="modalNav">
+				<button class="closeModal2"><i class="fa-solid fa-xmark"></i></button>
+			</div>
+			<h3>Ajout photo</h3>
+
+			<div id="zoneAddPics">
+				<i class="fa-regular fa-image"></i>
+ 				<input type="file" name="image" id="AddPics">
+				<button id="fileChoice">+ Ajouter photo</button>
+				<img src="#" alt="Aperçu de l'image selectionner" id="fileSelected">
+				<p>jpg,png : 4mo max</p>
+			</div>
+
+			<div class="title">
+				<p>Titre</p>
+				<input type="text" name="title" id="addTittle">
+			</div>
+
+			<div class="categorie">
+				<p class="categoryText">catégorie</p>
+				<select id="categoryChoice" name="category">
+					<option value="1">Objets</option>
+					<option value="2">Appartements</option>
+					<option value="3">Hôtels et restaurants</option>
+				</select>
+			</div>
+			
+			<div class="modalBtn">
+				<input type="submit" id="validePics" value="Valider">
+			</div>
+		</form>
+	</dialog>
+
+	
+
+
 	
 	<section id="introduction">
 		<figure>
@@ -65,7 +107,7 @@
 		<div class="modification inactive">
 			<button class="modal-button ">
 				<i class="fa-regular fa-pen-to-square"></i>
-				<p class="btnEdition2">Modifier</p>
+				<a href="#" class="btnEdition">Modifier</a>
 			</button>
 		</div>
 		 

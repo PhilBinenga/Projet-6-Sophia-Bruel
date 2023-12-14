@@ -101,17 +101,13 @@ if (token == null) {
 
 // Modale //
  
-const modal = document.getElementById("dialog");
-const btnEdition = document.querySelector(".edition");
-const btnEdition2 = document.querySelector(".btnEdition2");
+const dialog = document.getElementById("modal");
+const btnEdition = document.querySelector(".btnEdition");
+const modalGallery = document.getElementById("modalGallery")
 
 btnEdition.addEventListener("click", function(){
-  modal.showModal()
-  showModalGallery()
+  dialog.showModal()
+  generateModal()
 })
 
-btnEdition2.addEventListener("click", function(){
-  modal.showModal()
-  showModalGallery()
-})
 
