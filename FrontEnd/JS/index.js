@@ -18,18 +18,34 @@ const fetchWorks = () => {
 
 
 
-  // Apparition des travaux sur le DOM // 
+  // Apparition des travaux sur le DOM et la modale// 
 
   function createGallery(objet) {
     let galleries = "";
+    let galleryModale =""
     for (let work of objet) {
         galleries += `
         <figure>
         <img src="${work.imageUrl}" alt="${work.title}">
         <figcaption>${work.title}</figcaption>
     </figure>`;  }
-    gallery.innerHTML = galleries;
-  }
+
+    for (let work of objet) {
+      galleryModale += `
+      <figure>
+      <img src="${work.imageUrl}" alt="${work.title}">
+      <i class="fa-solid fa-trash-can" name="${work.id}"></i>
+      <figcaption>${work.title}</figcaption>
+      
+      </figure>`;
+    }
+  gallery.innerHTML = galleries;
+  document.getElementById("modalGallery").innerHTML = galleryModale
+    }
+
+
+
+
 
 // Création des boutons filtres par catégorie //
 
@@ -57,9 +73,6 @@ const fetchCategories = () => {
 
 fetchCategories()
 
-function createFilters() {
-  console.log()
-}
 
 document.getElementById('filterst').addEventListener('click', () => {
   createGallery(works);
@@ -93,9 +106,9 @@ function disableEditMode() {
   modification.classList.add("inactive")
 }
 
-if (token == null) {
+if (token !== null) {
   EditMode();
-  btnLogout.addEventListener("click", disableEditMode);
+  btnLogout.addEventListener("click", disableEditMode);  
 
 }
 
@@ -107,7 +120,7 @@ const modalGallery = document.getElementById("modalGallery")
 
 btnEdition.addEventListener("click", function(){
   dialog.showModal()
-  generateModal()
 })
 
+// Supprimer work //
 

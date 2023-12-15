@@ -84,6 +84,13 @@ h2{
 	font-size: 30px;
 	color: #1D6154
 }
+
+h3 {
+	font-family: 'Work Sans';
+	font-size: 26px;
+	font-weight: 400;
+}
+
 nav ul {
 	display: flex;
 	align-items: center;
@@ -155,9 +162,77 @@ li:hover {
 	background-color: #1D6154;
 	color: #FFFFFF;
 	cursor: pointer;
-
 }
 
+.btnEdition {
+	gap: 6px;
+	padding-top: 15px;
+	padding-left: 60px;
+}
+/* MODALE */
+
+#modal {
+	position: fixed;
+	width: 630px;
+	border-radius: 10px;
+	border: none;
+	padding: 30px;
+}
+
+dialog::backdrop {
+	background-color: #00000073;
+}
+
+.modal_content {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 30px 10px;
+	height: 97%;
+}
+
+#modalGallery {
+	padding-bottom: 20px;
+	padding-top: 30px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+	width: 70%;
+}
+
+#modalGallery img {
+	width: 76.86px;
+	height: 102.57px;
+}
+
+#modalGallery figcaption {
+	display: none;
+}
+
+.modalLine {
+	border: 1px solid rgba(150, 149, 149, 0.74);
+	border-top: none;
+	width: 80%;
+	margin-top: 5px;
+}
+.modalBtn {
+	display: flex;
+	gap: 6px;
+	font-size: 1em;
+	background: none;
+	border: none;
+	cursor: pointer;
+
+	.trash-icon {
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		cursor: pointer;
+		color: red;
+}	
+
+}
 /* BAR EDITION */
 .edition{
 	position: absolute;
@@ -172,17 +247,42 @@ li:hover {
 	width: 100%;
 	gap: 10px;
 }
+.projets {
+	display: flex;
+    justify-content: center;
+    gap: 30px;
+	padding-bottom: 3px;
+}
+
+.modification{
+	display: flex;
+}
+
+
 
 .btnEdition {
 	border-radius: 20px;
     padding: 8px;
     font-weight: bold;
 	cursor: pointer;
+	
+
 }
 
 .inactive{
 	display: none;
 }
+
+.closeModal {
+	border: none;
+	background-color: white;
+	font-size: 1.7em;
+	position: absolute;
+	top: 20px;
+	right: 40px;
+	cursor: pointer;
+}
+
 
 form {
 	display: flex;
@@ -191,10 +291,11 @@ form {
 	align-items: center;
 }
 
-form {
+#modal form {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	
 	
 }
 .gallery {

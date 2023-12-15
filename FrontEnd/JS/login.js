@@ -18,7 +18,7 @@ loginBtn.addEventListener("submit", async (e) => {
   });
   if (response.ok) {
     const data = await response.json();
-    sessionStorage.setItem("accessToken", data.token);
+    localStorage.setItem("token", data.token);
     window.location.href = "./index.html"
   } else {
     errorMessage.style.visibility = "visible";
