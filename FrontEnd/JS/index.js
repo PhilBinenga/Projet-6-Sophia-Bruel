@@ -2,6 +2,7 @@ const gallery = document.querySelector(".gallery");
 let works = [];
 let categories = [];
 
+
 // Récupération de l'API //
 const fetchWorks = () => {
     fetch("http://localhost:5678/api/works")
@@ -30,21 +31,44 @@ const fetchWorks = () => {
         <figcaption>${work.title}</figcaption>
     </figure>`;  }
 
+    
     for (let work of objet) {
       galleryModale += `
       <figure>
       <img src="${work.imageUrl}" alt="${work.title}">
       <i class="fa-solid fa-trash-can" name="${work.id}"></i>
       <figcaption>${work.title}</figcaption>
-      
       </figure>`;
+    
     }
   gallery.innerHTML = galleries;
   document.getElementById("modalGallery").innerHTML = galleryModale
+
+  // Fonction delete work //
+
+  const deleteRequest = {
+    method: "DELETE",
+    headers: {
+        Authorization: `Bearer ${token}`
     }
+};
+  
+  document.querySelectorAll('.fa-trash-can').forEach((elem) => {
+    elem.addEventListener('click', (e) => {
+      const workId = elem.getAttribute("data-id");
+      fetch(`http://localhost:5678/api/works/${workId}`, deleteRequest)
+      .then((respons) => {
+        if (respons.ok) {
+          console.log("Projet supprimé avec succès !");
+          elem.parentElement.remove();
+          const deleteFigure = document.querySelector(`figure[data-id="${workId}"]`);
+          deleteFigure.remove();
+        }
+      })
 
-
-
+    })
+  })
+  }
 
 
 // Création des boutons filtres par catégorie //
@@ -119,8 +143,23 @@ const btnEdition = document.querySelector(".btnEdition");
 const modalGallery = document.getElementById("modalGallery")
 
 btnEdition.addEventListener("click", function(){
-  dialog.showModal()
-})
+  modal.showModal()
+});
 
-// Supprimer work //
+// Modale ajout  //
+
+const addPicsBtn = document.getElementById("addPicsBtn");
+const modalAdd = document.querySelector(".modalAdd");
+
+addPicsBtn.addEventListener("click", function() {
+  modalAdd.showModal()
+});
+
+// Fermeture modale //
+const close2 = document.querySelector(".closeModal2");
+
+close2.addEventListener("click", function(){
+  modalAdd.close()
+});
+
 
