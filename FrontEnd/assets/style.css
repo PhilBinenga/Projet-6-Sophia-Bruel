@@ -177,19 +177,18 @@ li:hover {
 	position: relative;
 	top: -90px;
     left: -19px;
-	background-color: black;
-	
 }
 
 #modal {
 	position: fixed;
-	width: 50%;
+	width: 630px;
+	height: 670px;
 	border-radius: 10px;
 	border: none;
-	gap: 10px;
+
 }
 
-dialog::backdrop, {
+dialog::backdrop {
 	background-color: #00000073;
 }
 
@@ -203,17 +202,17 @@ dialog::backdrop, {
 }
 
 #modalGallery {
-	padding-bottom: 20px;
-	padding-top: 30px;
 	display: flex;
 	flex-wrap: wrap;
 	gap: 12px;
 	width: 70%;
+	padding-top: 30px;
+	padding-bottom: 20px;
 }
 
 #modalGallery img {
-	width: 76.86px;
-	height: 102.57px;
+	width: 95px;
+	height: 110px;
 }
 
 #modalGallery figcaption {
@@ -233,10 +232,79 @@ dialog::backdrop, {
 	background: none;
 	border: none;
 	cursor: pointer;
-
-
 }	
+#addPicsBtn {
+	background-color: #1D6154;
+	color: white;
+	border-radius: 20px;
+	padding: 8px 13px 8px 13px;
+	border: 1.5px solid #1D6154;
+	font-family: 'Syne';
+	font-size: 1.1em;
+	margin-top: 30px;
+	margin-bottom: 15px;
+	
+	cursor: pointer;
+}
+.modalLine span {
+	border: 1px solid rgba(150, 149, 149, 0.74);
+	border-top: none;
+	width: 80%;
+	margin-top: 5px;
+}
+/* MODALE ADD */
 
+.fa-arrow-left {
+	border: none;
+	background-color: white;
+	font-size: 21px;
+	position: absolute;
+	top: 20px;
+	left: 40px;
+	cursor: pointer;
+
+}
+.closeModal2 {
+    border: none;
+    background-color: white;
+    font-size: 1.7em;
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    cursor: pointer;
+}
+.modalNav2 {
+	display: flex;
+	justify-content: space-between;
+	padding-top: 30px;
+}
+.modalAdd {
+	position: fixed;
+	width: 630px;
+	height: 670px;
+	border-radius: 10px;
+	border: none;
+	gap: 10px;
+}
+.modalAddPics {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+#validePics {
+	background-color: #1D6154;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 13px 8px 13px;
+    border: 1.5px solid #1D6154;
+    font-family: 'Syne';
+    font-size: 1.1em;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    cursor: pointer;
+
+}
 
 /* BAR EDITION */
 .edition{

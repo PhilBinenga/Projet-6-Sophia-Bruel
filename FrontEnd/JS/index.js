@@ -155,8 +155,23 @@ addPicsBtn.addEventListener("click", function() {
   modalAdd.showModal()
 });
 
+// Retour modale //
+
+const returnModale = document.querySelector(".fa-arrow-left");
+
+returnModale.addEventListener("click", function() {
+  modal.showModal()
+});
+
 // Fermeture modale //
+const close1 = document.querySelector(".closeModal");
 const close2 = document.querySelector(".closeModal2");
+
+close1.addEventListener("click", function() {
+  modal.close()
+  modalAdd.close()
+});
+
 
 close2.addEventListener("click", function(){
   modalAdd.close()
