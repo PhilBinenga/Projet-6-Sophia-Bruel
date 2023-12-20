@@ -88,6 +88,13 @@ const fetchCategories = () => {
         createGallery(workToDisplay);
       })
       document.querySelector('.filters-container').appendChild(btn)
+
+      // Filtre gallery modale //
+
+      const option = document.createElement('option')
+      option.innerHTML = category.name
+      option.value = categories.id
+      document.querySelector("#categoryChoice").appendChild(option)
     });
   })
   .catch((error) => {
@@ -176,5 +183,38 @@ close1.addEventListener("click", function() {
 close2.addEventListener("click", function(){
   modalAdd.close()
 });
+
+
+// Changement style input files //
+const addPics = document.getElementById("addPics");
+const fileChoice = document.getElementById("fileChoice");
+const imagePreview = document.getElementById("fileSelected");
+
+fileChoice.addEventListener("click", function(event) {
+  event.preventDefault()
+  addPics.click()
+})
+
+addPics.addEventListener("change", function(){
+  const fileSelected = addPics.files[0]
+
+  if (fileSelected){
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+      imagePreview.src = event.target.result;
+      imagePreview.style.display = "block";
+    }
+    reader.readAsDataURL(fileSelected)
+  }
+})
+
+// Ajout des pics //
+
+const form = document.getElementById("modalAddPics");
+
+const addTitle = document.getElementById("addTittle");
+const addCategory = document.getElementById("categoryChoice");
+const btnValide = document.getElementById("validePics");
 
 

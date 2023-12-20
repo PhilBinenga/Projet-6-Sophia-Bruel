@@ -303,7 +303,69 @@ dialog::backdrop {
     margin-top: 30px;
     margin-bottom: 15px;
     cursor: pointer;
+}
 
+#zoneAddPics {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 20px;
+	align-items: center;
+	background-color: #e8F1F6;
+	margin: auto;
+	width: 80%;
+	height: 250px;
+}
+
+.fa-image{
+	font-size: 80px;
+	margin-top: 10px;
+	color: #B9C5CC;
+}
+
+#adddPics {
+	height: 200px;
+	width: 80%;
+}
+
+.modalh3 {
+	padding-bottom: 20px;
+}
+.title, .categorie {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin-bottom: 20px;
+	align-items: center;
+	padding-top: 30px;
+}
+#addTittle, #categoryChoice {
+	width: 80%;
+	height: 30px;
+	margin: auto;
+	display: flex;
+}
+#addPics {
+	display: none;
+}
+
+#fileSelected {
+	height: 250px;
+	display: none;
+	position: absolute;
+}
+
+#fileChoice {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: #306685;
+	background-color: #CBD6DC;
+	margin-bottom: 20px;
+	text-align: center;
+	border-radius: 60px ;
+	padding:8px;
+	cursor: pointer;
+	border: none;
 }
 
 /* BAR EDITION */
