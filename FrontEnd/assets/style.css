@@ -208,6 +208,7 @@ dialog::backdrop {
 	width: 70%;
 	padding-top: 30px;
 	padding-bottom: 20px;
+	justify-content: center;
 }
 
 #modalGallery img {
@@ -363,9 +364,26 @@ dialog::backdrop {
 	margin-bottom: 20px;
 	text-align: center;
 	border-radius: 60px ;
-	padding:8px;
+	padding: 8px;
 	cursor: pointer;
 	border: none;
+}
+input#addTitle {
+    box-shadow: 0px 4px 14px 0px #00000017;
+    border: none;
+    height: 45px;
+    width: 420px;
+}
+
+.form select {
+	height: 45px;
+	font-size: 14px;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	cursor: pointer;
+}
+.title p {
+ padding-bottom: 10px;
 }
 
 /* BAR EDITION */

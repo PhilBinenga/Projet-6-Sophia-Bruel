@@ -26,7 +26,7 @@ const fetchWorks = () => {
     let galleryModale =""
     for (let work of objet) {
         galleries += `
-        <figure>
+        <figure data-id="${work.id}">
         <img src="${work.imageUrl}" alt="${work.title}">
         <figcaption>${work.title}</figcaption>
     </figure>`;  }
@@ -34,7 +34,7 @@ const fetchWorks = () => {
     
     for (let work of objet) {
       galleryModale += `
-      <figure>
+      <figure data-id="${work.id}" >
       <img src="${work.imageUrl}" alt="${work.title}">
       <i class="fa-solid fa-trash-can" name="${work.id}"></i>
       <figcaption>${work.title}</figcaption>
@@ -55,7 +55,9 @@ const fetchWorks = () => {
   
   document.querySelectorAll('.fa-trash-can').forEach((elem) => {
     elem.addEventListener('click', (e) => {
-      const workId = elem.getAttribute("data-id");
+      e.preventDefault()
+      console.log(e.target.parentElement.dataset.id)
+      const workId = e.target.parentElement.dataset.id;
       fetch(`http://localhost:5678/api/works/${workId}`, deleteRequest)
       .then((respons) => {
         if (respons.ok) {
@@ -212,9 +214,41 @@ addPics.addEventListener("change", function(){
 // Ajout des pics //
 
 const form = document.getElementById("modalAddPics");
-
-const addTitle = document.getElementById("addTittle");
+const addTitle = document.getElementById("addTitle");
 const addCategory = document.getElementById("categoryChoice");
 const btnValide = document.getElementById("validePics");
+const addPhoto = document.getElementById("addPics");
 
+form.addEventListener("submit", async function (event) {
+  event.preventDefault();
 
+  if (addPhoto.value !== "" && addTitle.value !== "" && addCategory.value !== "") {
+      if (confirm(`Voulez-vous ajouter le projet ?`)) {
+          try {
+              let formData = new FormData();
+              formData.append("title", addTitle.value);
+              formData.append("image", addPhoto.files[0]);
+              formData.append("category.id", addCategory.value);
+
+              const response = await fetch(`http://localhost:5678/api/works`, {
+                  method: "POST",
+                  headers: { "Authorization": `Bearer ${token}` },
+                  body: formData  // Use the formData object you created
+              });
+
+              if (response.ok) {
+                  console.log("Succès");
+                  form.reset();
+                  imagePreview.src = "";
+                  imagePreview.style.display = "none";
+                  gallery.innerHTML = "";
+                createGallery();
+              } else {
+                  console.log("Erreur");
+              }
+          } catch (error) {
+              console.error("Erreur lors de la requête :", error);
+          }
+      }
+  }
+});
