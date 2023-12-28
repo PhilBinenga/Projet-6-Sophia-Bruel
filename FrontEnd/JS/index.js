@@ -95,7 +95,7 @@ const fetchCategories = () => {
 
       const option = document.createElement('option')
       option.innerHTML = category.name
-      option.value = categories.id
+      option.value = category.id
       document.querySelector("#categoryChoice").appendChild(option)
     });
   })
@@ -223,12 +223,11 @@ form.addEventListener("submit", async function (event) {
   event.preventDefault();
 
   if (addPhoto.value !== "" && addTitle.value !== "" && addCategory.value !== "") {
-      if (confirm(`Voulez-vous ajouter le projet ?`)) {
           try {
               let formData = new FormData();
               formData.append("title", addTitle.value);
               formData.append("image", addPhoto.files[0]);
-              formData.append("category.id", addCategory.value);
+              formData.append("category", parseInt(addCategory.value));
 
               const response = await fetch(`http://localhost:5678/api/works`, {
                   method: "POST",
@@ -242,7 +241,7 @@ form.addEventListener("submit", async function (event) {
                   imagePreview.src = "";
                   imagePreview.style.display = "none";
                   gallery.innerHTML = "";
-                createGallery();
+                  fetchWorks();
               } else {
                   console.log("Erreur");
               }
@@ -251,4 +250,4 @@ form.addEventListener("submit", async function (event) {
           }
       }
   }
-});
+);

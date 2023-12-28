@@ -339,6 +339,8 @@ dialog::backdrop {
 	margin-bottom: 20px;
 	align-items: center;
 	padding-top: 30px;
+	width: 100%;
+	gap: 10px
 }
 #addTittle, #categoryChoice {
 	width: 80%;
@@ -346,6 +348,7 @@ dialog::backdrop {
 	margin: auto;
 	display: flex;
 }
+
 #addPics {
 	display: none;
 }
@@ -368,20 +371,14 @@ dialog::backdrop {
 	cursor: pointer;
 	border: none;
 }
-input#addTitle {
+input#addTitle, select#CategoryChoice {
     box-shadow: 0px 4px 14px 0px #00000017;
     border: none;
     height: 45px;
     width: 420px;
 }
 
-.form select {
-	height: 45px;
-	font-size: 14px;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	cursor: pointer;
-}
+
 .title p {
  padding-bottom: 10px;
 }
@@ -458,6 +455,7 @@ form {
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 }
+
 
 .gallery img {
 	width: 100%;
