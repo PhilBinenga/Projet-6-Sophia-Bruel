@@ -102,6 +102,11 @@ nav li {
 	font-size: 1.2em;
 }
 
+.btnLogout, .btnLogin {
+	text-decoration: none;
+}
+
+
 li:hover {
 	color: #B1663C;
 }
@@ -169,15 +174,27 @@ li:hover {
 	gap: 6px;
 	padding-top: 15px;
 	padding-left: 60px;
+	text-decoration: none;
 }
+
+.modification i {
+	position: relative;
+	top: 10px;
+}
+
 /* MODALE */
 
 .fa-trash-can{
 	font-size: small;
-	color: white;
-	position: relative;
-	top: -90px;
-    left: -19px;
+    color: white;
+    position: relative;
+    top: -108px;
+    left: 75px;
+    background: black;
+    width: 18px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 #modal {
@@ -392,11 +409,11 @@ input#addTitle, select#CategoryChoice {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 30px;
 	background-color: black;
 	color: white;
 	width: 100%;
 	gap: 10px;
+	height: 45px;
 }
 .projets {
 	display: flex;

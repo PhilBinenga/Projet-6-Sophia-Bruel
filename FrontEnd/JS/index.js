@@ -34,11 +34,13 @@ const fetchWorks = () => {
     
     for (let work of objet) {
       galleryModale += `
+      
       <figure data-id="${work.id}" >
       <img src="${work.imageUrl}" alt="${work.title}">
       <i class="fa-solid fa-trash-can" name="${work.id}"></i>
       <figcaption>${work.title}</figcaption>
-      </figure>`;
+      </figure>
+      </div>`;
     
     }
   gallery.innerHTML = galleries;
